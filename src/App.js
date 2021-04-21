@@ -1,17 +1,9 @@
-import React,{ useState } from "react";
+import React  from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import history from "./utils/history";
 
-import Nf from "./Nft";
-import NewPage from "./Newpage";
-import Sendpage from "./Sendpage";
-import Tokencreate from "./Tokencreate";
-import Printallimage from "./Printallimage";
-import Approveaddresspage from "./Approveaddresspage";
-import Salepage from "./Salepage";
-import Saleimagepage from "./Saleimagepage";
-import Second from "./Second";
-import getca from "./cabi";
+import Supply from "./Supply";
+
 
 function App() {
   
@@ -28,132 +20,27 @@ function App() {
         <Router history={history}>
           <Switch>
             <Route path="/" exact>
-              <div class="display-4 mb-1">Choose a route to go to page</div>
+              <div class="display-4 mb-1"><h1>CREDIT</h1></div>
               <br></br><br></br><br></br>
               
               <button
                 class="btn btn-info btn-block"
                 type="button"
                 onClick={() => {
-                  history.push("/Nft");
+                  history.push("/Supply");
                 }}
               >
-                Nft Deploy Contract     
+                Supply Concept    
               </button>
 
 
-
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Newpage");
-                }}
-              >
-                Get Single Image Page
-              </button>
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Sendpage");
-                }}
->
-  Transfer NFT-Owner
-              </button>
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Tokencreate");
-                }}
-              >
-                Mint-Token
-              </button>
-
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Printallimage");
-                }}
-              >
-                PrintallImage Page
-              </button>
-
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Approveaddresspage");
-                }}
-              >
-                Approve-Address Page
-              </button>
-
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Salepage");
-                }}
-              >
-                Sale-My Token Page
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Saleimagepage");
-                }}
-              >
-                Sales Image page    
-              </button>
-              <button
-                class="btn btn-info btn-block"
-                type="button"
-                onClick={() => {
-                  history.push("/Second");
-                }}
-              >
-                Onload image    
-              </button>
 
 
 
             </Route>
             
-            <Route path="/Nft">
-              <Nf />
-            </Route>
-            <Route path="/Newpage">
-              <NewPage />
-            </Route>
-            <Route path="/Sendpage">
-              <Sendpage />
-            </Route>
-            <Route path="/Tokencreate">
-              <Tokencreate />
-            </Route>
-            <Route path="/Printallimage">
-              <Printallimage />
-            </Route>
-            <Route path="/Approveaddresspage">
-              <Approveaddresspage />
-            </Route>
-            <Route path="/Salepage">
-              <Salepage />
-            </Route>
-            <Route path="/Saleimagepage">
-              <Saleimagepage />
-            </Route>
-            <Route path="/Second">
-              <Second />
+            <Route path="/Supply">
+              <Supply />
             </Route>
           </Switch>
         </Router>

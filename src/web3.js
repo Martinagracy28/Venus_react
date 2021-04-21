@@ -17,6 +17,9 @@ const web3 = new Web3(currProvider);
 
 console.log('currProvider ');
 
+
+
+
 console.log(currProvider);
 
 
