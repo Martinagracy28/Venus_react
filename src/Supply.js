@@ -13,6 +13,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import sb from  "./supplyabi";
 import App from "./App";
 import busd from "./BUSDabi";
+import compt from "./comptroller";
 
 
 function Supply() {
@@ -31,7 +32,7 @@ function Supply() {
   //  var ga =[];
   var ga =  await sb.methods.balanceOf(accounts[0]).call();
   
-  setId2(ga);
+  setId2(ga/1000000000000000000);
   var b = await sb.methods.borrowBalanceStored(accounts[0]).call();
   setId3(b);
   alert(ga);
@@ -66,6 +67,12 @@ const redeem = async (event) => {
   await sb.methods.redeemUnderlying(amount).send({from:accounts[0]});
   alert("redeemed")
 }
+// const collateral = async (event) => {
+//   event.preventDefault();
+//   const accounts = await  web3.eth.getAccounts();
+//   await compt.methods.enterMarkets(["0x0075256cFc7467159360db309F5AC930ACef037d"]).send({from:accounts[0]});
+//   alert("collateral enabled")
+// }
 
 
   
@@ -104,7 +111,7 @@ const redeem = async (event) => {
     </form>
 
 
-    <div> Balance of eBUSD <br />{tid2} </div><br />
+    <div> eBUSD Wallet <br />{tid2} </div><br />
     <div>Available Borrow Balance <br />{tid3} </div><br />
     <div>Before Mint we want to approve</div>
     <button onClick = {approve}>Approve</button>
@@ -124,6 +131,9 @@ const redeem = async (event) => {
     <input type = "number" name="tid1" required onChange={event => setId1( event.target.value)} />
     <button  onClick={redeem}>Confirm</button>
     </Popup>
+    <br />
+    <br />
+    {/* <button  onClick={collateral}>Enable Collateral</button> */}
 
 
 
