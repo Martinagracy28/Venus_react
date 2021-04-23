@@ -35,9 +35,11 @@ function Supply() {
   var ga =  await sb.methods.balanceOf(accounts[0]).call();
   
   setId2(ga/1000000000000000000);
-  // var b = await sb.methods.borrowBalanceStored(accounts[0]).call();
+  //var b = await sb.methods.borrowBalanceStored(accounts[0]).call();
   // setId3(b);
   alert(ga);
+  var b = await busd.methoods.balanceOf(accounts[0]).call();
+setId3(b)
   
  }
       
@@ -114,7 +116,7 @@ const collateral = async (event) => {
 
 
     <div> eBUSD Wallet Balance<br />{tid2} </div><br />
-    {/* <div>Available Borrow Balance <br />{tid3} </div><br /> */}
+    <div>BUSD Waaaallet Balance <br />{tid3} </div><br />
     <div>Before Mint we want to approve</div>
     <button onClick = {approve}>Approve</button>
     <br /><br />
