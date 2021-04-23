@@ -30,13 +30,15 @@ function Supply() {
 
    const accounts =  await web3.eth.getAccounts();
   //  var ga =[];
+//  alert( await sb.methods.getAccountSnapshot(accounts[0]).call());
+  
   var ga =  await sb.methods.balanceOf(accounts[0]).call();
   
   setId2(ga/1000000000000000000);
-  var b = await sb.methods.borrowBalanceStored(accounts[0]).call();
-  setId3(b);
+  // var b = await sb.methods.borrowBalanceStored(accounts[0]).call();
+  // setId3(b);
   alert(ga);
-  alert(b);
+  
  }
       
   const approve = async (event) => {
@@ -67,12 +69,12 @@ const redeem = async (event) => {
   await sb.methods.redeemUnderlying(amount).send({from:accounts[0]});
   alert("redeemed")
 }
-// const collateral = async (event) => {
-//   event.preventDefault();
-//   const accounts = await  web3.eth.getAccounts();
-//   await compt.methods.enterMarkets(["0x0075256cFc7467159360db309F5AC930ACef037d"]).send({from:accounts[0]});
-//   alert("collateral enabled")
-// }
+const collateral = async (event) => {
+  event.preventDefault();
+  const accounts = await  web3.eth.getAccounts();
+  await compt.methods.enterMarkets(["0x0075256cFc7467159360db309F5AC930ACef037d"]).send({from:accounts[0]});
+  alert("collateral enabled")
+}
 
 
   
@@ -111,8 +113,8 @@ const redeem = async (event) => {
     </form>
 
 
-    <div> eBUSD Wallet <br />{tid2} </div><br />
-    <div>Available Borrow Balance <br />{tid3} </div><br />
+    <div> eBUSD Wallet Balance<br />{tid2} </div><br />
+    {/* <div>Available Borrow Balance <br />{tid3} </div><br /> */}
     <div>Before Mint we want to approve</div>
     <button onClick = {approve}>Approve</button>
     <br /><br />
@@ -123,8 +125,8 @@ const redeem = async (event) => {
     </Popup>
 
     
-    <br />
-     
+    <br /><br />
+    <button  onClick={collateral}>Enable Collateral</button>
       <br /><br />
       <Popup trigger={<button> Redeem</button>} position="right center"><br />
     <div>Enter the amount you want to Redeem</div>
@@ -133,7 +135,7 @@ const redeem = async (event) => {
     </Popup>
     <br />
     <br />
-    {/* <button  onClick={collateral}>Enable Collateral</button> */}
+    
 
 
 
