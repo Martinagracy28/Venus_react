@@ -25,7 +25,8 @@ function Supply() {
   var [tid2,setId2] = useState([]);
 
   var [tid3,setId3] = useState([]);
-    useEffect(()=>{bal()},[])
+  var [tid4,setId4] = useState([]);
+      useEffect(()=>{bal()},[])
  const bal = async () => {
 
    const accounts =  await web3.eth.getAccounts();
@@ -38,9 +39,10 @@ function Supply() {
   //var b = await sb.methods.borrowBalanceStored(accounts[0]).call();
   // setId3(b);
   alert(ga);
-  var b = await busd.methoods.balanceOf(accounts[0]).call();
-setId3(b)
-  
+  var b = await busd.methods.balanceOf(accounts[0]).call();
+setId3(b/1000000000000000000)
+  var c = await compt.methods.checkMembership(accounts[0],"0x0075256cFc7467159360db309F5AC930ACef037d").call();
+  setId4(c);
  }
       
   const approve = async (event) => {
@@ -128,7 +130,7 @@ const collateral = async (event) => {
 
     
     <br /><br />
-    <button  onClick={collateral}>Enable Collateral</button>
+    <button  onClick={collateral}>Enable collateral</button>
       <br /><br />
       <Popup trigger={<button> Redeem</button>} position="right center"><br />
     <div>Enter the amount you want to Redeem</div>
