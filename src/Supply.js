@@ -40,14 +40,9 @@ function Supply() {
   // setId3(b);
   alert(ga);
   var b = await busd.methods.balanceOf(accounts[0]).call();
-<<<<<<< HEAD
 setId3(b/1000000000000000000)
   var c = await compt.methods.checkMembership(accounts[0],"0x0075256cFc7467159360db309F5AC930ACef037d").call();
   setId4(c);
-=======
-setId3(b)
-  
->>>>>>> 14a692894e2644c8443f531c70e32a5047652b92
  }
       
   const approve = async (event) => {
