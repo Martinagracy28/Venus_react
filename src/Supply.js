@@ -38,7 +38,7 @@ function Supply() {
   //var b = await sb.methods.borrowBalanceStored(accounts[0]).call();
   // setId3(b);
   alert(ga);
-  var b = await busd.methoods.balanceOf(accounts[0]).call();
+  var b = await busd.methods.balanceOf(accounts[0]).call();
 setId3(b)
   
  }
