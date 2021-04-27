@@ -79,7 +79,12 @@ const collateral = async (event) => {
   await compt.methods.enterMarkets(["0x0075256cFc7467159360db309F5AC930ACef037d"]).send({from:accounts[0]});
   alert("collateral enabled")
 }
-
+const exitcollateral = async (event) => {
+  event.preventDefault();
+  const accounts = await  web3.eth.getAccounts();
+  await compt.methods.exitMarket("0x0075256cFc7467159360db309F5AC930ACef037d").send({from:accounts[0]});
+  alert("collateral disabled")
+}
 
   
 
@@ -117,8 +122,8 @@ const collateral = async (event) => {
     </form>
 
 
-    <div> eBUSD Wallet Balance<br />{tid2} </div><br />
-    <div>BUSD Waaaallet Balance <br />{tid3} </div><br />
+    <div> cBUSD Wallet Balance<br />{tid2} </div><br />
+    <div>BUSD Wallet Balance <br />{tid3} </div><br />
     <div>Before Mint we want to approve</div>
     <button onClick = {approve}>Approve</button>
     <br /><br />
@@ -130,7 +135,24 @@ const collateral = async (event) => {
 
     
     <br /><br />
-    <button  onClick={collateral}>Enable collateral</button>
+    <div>
+{tid4 === true ? 
+(
+(
+<div>
+<button  onClick={collateral}>Disable Collateral</button>
+</div>
+)
+):
+(
+(
+<div>
+<button  onClick={exitcollateral}>Enable Collateral</button> 
+</div>
+)
+)}
+</div>
+    {/* <button  onClick={collateral}>Enable collateral</button> */}
       <br /><br />
       <Popup trigger={<button> Redeem</button>} position="right center"><br />
     <div>Enter the amount you want to Redeem</div>

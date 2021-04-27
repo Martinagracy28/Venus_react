@@ -3,6 +3,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import history from "./utils/history";
 
 import Supply from "./Supply";
+import Borrow from "./borrow";
 
 
 function App() {
@@ -32,6 +33,17 @@ function App() {
               >
                 Supply Concept    
               </button>
+              <br></br>
+              <br />
+              <button
+                class="btn btn-info btn-block"
+                type="button"
+                onClick={() => {
+                  history.push("/Borrow");
+                }}
+              >
+                Borrow Concept    
+              </button>
 
 
 
@@ -41,6 +53,9 @@ function App() {
             
             <Route path="/Supply">
               <Supply />
+            </Route>
+            <Route path="/Borrow">
+              <Borrow />
             </Route>
           </Switch>
         </Router>
